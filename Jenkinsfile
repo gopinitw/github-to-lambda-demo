@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambda3.zip" "lambda_function.py" "requirements.txt" "iam-policy.json"'
+                sh 'zip "lambda3_${BUILD_NUMBER}.zip" "lambda_function.py" "requirements.txt" "iam-policy.json"'
             }
         }
      stage('Upload to AWS') {
