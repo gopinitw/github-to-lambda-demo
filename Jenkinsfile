@@ -18,7 +18,7 @@ pipeline {
         }
     stage("Upload"){
         steps{
-                sh '''withAWS(region:"useast-1", credentials:"${awscred}){
+                sh  'withAWS(region:"useast-1", credentials:"${awscred})'{
                     s3Upload(file:"lambda3_${BUILD_NUMBER}.zip", bucket:"${bucket}", path:"lambda3_${BUILD_NUMBER}.zip/")'''
                 }    
         }
