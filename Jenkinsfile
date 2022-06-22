@@ -12,11 +12,9 @@ pipeline {
     }
     stage('Zip up lambda') {
         steps {
-          dir('workspcae'){
                 sh 'zip "lambda3.zip" "lambda_function.py" "requirements.txt"'
             }
         }
-    }
     stage('Upload to AWS') {
         steps {
           dir('lambda/testJenkins') {
