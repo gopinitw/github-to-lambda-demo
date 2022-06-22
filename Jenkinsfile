@@ -17,6 +17,7 @@ pipeline {
         }
      stage('Upload to AWS') {
         steps {
+             aws_credential = "awscr"
             sh '''function does_lambda_exist() {
               aws lambda get-function --function-name $1 > /dev/null 2>&1
               if [ 0 -eq $? ]; then
