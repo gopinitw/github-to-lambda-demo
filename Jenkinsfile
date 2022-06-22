@@ -12,6 +12,7 @@ pipeline {
     }
     stage('Zip up Lambda') {
         steps {
+                sh 'apt install zip'
                 sh 'zip -r aws_lambda.zip'
             }
         }
