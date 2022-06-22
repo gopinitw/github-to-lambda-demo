@@ -10,12 +10,13 @@ pipeline {
         checkout scm
       }
     }
-    stage('Zip') {
+    stage('Zip up lambda') {
         steps {
-          dir('aws_lambda')
-                sh 'zip -r aws_lambda.zip'
+          dir('aws_lambda/lambda_function'){
+                sh 'zip lambda_function.zip lambda_function.py'
             }
         }
+    }
     stage('Upload to AWS') {
         steps {
           dir('lambda/testJenkins') {
