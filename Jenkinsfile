@@ -12,8 +12,8 @@ pipeline {
     }
     stage('Zip up Lambda') {
         steps {
-            dir('lambda/testJenkins') {
-                sh 'zip testJenkins.zip testJenkins.py'
+            dir('lambda/lambda_function') {
+                sh 'zip lambda_function.zip lambda_function.py'
             }
         }
     }
