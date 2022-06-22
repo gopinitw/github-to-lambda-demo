@@ -10,8 +10,9 @@ pipeline {
         checkout scm
       }
     }
-    stage('Zip up Lambda') {
+    stage('Zip') {
         steps {
+          dir('aws_lambda')
                 sh 'zip -r aws_lambda.zip'
             }
         }
