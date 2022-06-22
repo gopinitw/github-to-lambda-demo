@@ -13,7 +13,7 @@ pipeline {
     stage('Zip up lambda') {
         steps {
           dir('aws_lambda'){
-                sh 'zip "aws_lambda.zip" "lambda_function.py" "requirements.txt"'
+                sh 'zip "lambda3.zip" "lambda_function.py" "requirements.txt"'
             }
         }
     }
