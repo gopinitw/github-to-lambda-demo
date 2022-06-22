@@ -12,7 +12,7 @@ pipeline {
     }
     stage('Zip up Lambda') {
         steps {
-            dir() {
+             {
                 sh 'zip lambda_function.zip lambda_function.py'
             }
         }
