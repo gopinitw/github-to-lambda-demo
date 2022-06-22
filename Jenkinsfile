@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
       PATH = "/var/lib/jenkins/aws:$PATH"
-      aws_credential = "awscr"
+      awscred = "awscr"
   }
 
   stages {
@@ -18,7 +18,7 @@ pipeline {
         }
      stage('Upload to AWS') {
         steps {
-            sh 'credentials:"${aws_credential}"'
+            sh 'credentials:"${awscred}"'
             sh '''function does_lambda_exist() {
               aws lambda get-function --function-name $1 > /dev/null 2>&1
               if [ 0 -eq $? ]; then
