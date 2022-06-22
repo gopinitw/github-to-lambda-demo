@@ -13,7 +13,7 @@ pipeline {
     stage('Zip up lambda') {
         steps {
           dir('aws_lambda/lambda_function'){
-                sh 'zip lambda_function.zip lambda_function.py'
+                sh 'zip aws_lambda.zip lambda_function.py'
             }
         }
     }
