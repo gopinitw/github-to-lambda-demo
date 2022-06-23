@@ -14,7 +14,7 @@ pipeline {
     }
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambda3.zip" "lambda_function.py" "requirements.txt" "iam-policy.json" "buildspec.yml"'
+                sh 'zip "lambda3.zip" "lambda_function.py" "requirements.txt" "iam-policy.json"'
             }
         }
   stage('Update Lambda function code') {
