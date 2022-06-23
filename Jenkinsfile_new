@@ -6,15 +6,20 @@ pipeline {
   stages {
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambda5.zip" "lambda_function.py" "requirements.txt"'
+                sh 'zip "lambda5${BUILD_NUMBER}.zip" "lambda_function.py" "requirements.txt"'
             }
-        }
+        }     
   stage('Update Lambda function code') {
       steps {
         script {
-          sh 'aws lambda update-function-code --function-name fairi3 --zip-file fileb://lambda5.zip'
+          sh 'aws lambda update-function-code --function-name fairi3 --zip-file fileb://lambda5${BUILD_NUMBER}.zip'
         }
       }
   }
+  stage('remove the pushed zip folder') {
+     steps {
+            sh 'rm -rf lambda5${BUILD_NUMBER}.zip'
+           }
+                                        }
   }
 }
