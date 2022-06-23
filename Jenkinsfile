@@ -2,12 +2,11 @@ pipeline {
   agent any
   environment {
       PATH = "/var/lib/jenkins/aws:$PATH"
+      ROLE_ARN = "arn:aws:iam::904440666777:role/ecrregistryec2"
+      FUNCTION_NAME = "fairilambda"
+      RELEASE_ASSET_NAME = "lambda3.zip" 
   }
-  parameters {
-    string(name: 'ROLE_ARN', description: 'IAM role to assume when calling AWS Lambda API')
-    string(name: 'FUNCTION_NAME', description: 'Function name of the Lambda we will update the code for')
-    string(name: 'RELEASE_ASSET_NAME', defaultValue: 'lambda3.zip', description: 'Name of the release asset to deploy')
-  }
+
   stages {
     stage('Checkout code') {
       steps {
