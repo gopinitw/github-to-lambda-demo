@@ -9,7 +9,7 @@ pipeline {
                 sh 'zip "lambda5${BUILD_NUMBER}.zip" "lambda_function.py" "requirements.txt"'
             }
         }     
- stage("Upload"){
+         stage("Upload"){
         steps{
                script {
                 withAWS(region: "us-east-1", credentials:"awscr") {
