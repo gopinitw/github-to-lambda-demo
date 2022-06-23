@@ -6,9 +6,7 @@ pipeline {
   parameters {
     string(name: 'ROLE_ARN', description: 'IAM role to assume when calling AWS Lambda API')
     string(name: 'FUNCTION_NAME', description: 'Function name of the Lambda we will update the code for')
-    string(name: 'RELEASES_API_URL', description: 'api.github.com releases URL for the GitHub repo where code releases are made (ends in "/releases")')
-    string(name: 'RELEASE_VERSION', description: 'Lambda release version to deploy')
-    string(name: 'RELEASE_ASSET_NAME', defaultValue: 'main.zip', description: 'Name of the release asset to deploy')
+    string(name: 'RELEASE_ASSET_NAME', defaultValue: 'lambda3.zip', description: 'Name of the release asset to deploy')
   }
   stages {
     stage('Checkout code') {
@@ -25,7 +23,7 @@ pipeline {
       steps {
         script {
           sh '''
-          echo "Deploying to: $FUNCTION_NAME using role: 'arn:aws:iam::904440666777:role/ecrregistryec2'"
+          echo "Deploying to: $FUNCTION_NAME using role: $ROLE_ARN"
           set +x
           STS_SESSION_NAME=$(whoami)-$(date +%s)
           STS=$(aws sts assume-role --role-arn $ROLE_ARN --role-session-name "${STS_SESSION_NAME}")
