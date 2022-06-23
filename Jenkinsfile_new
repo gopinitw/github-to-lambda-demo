@@ -20,8 +20,7 @@ pipeline {
         stage('remove the pushed zip folder') {
      steps {
             sh 'rm -rf lambda5${BUILD_NUMBER}.zip'
-           }
-                                               }
-             }
-             }
-             }
+          }
+       }
+    }
+ }
