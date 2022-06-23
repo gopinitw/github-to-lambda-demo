@@ -11,6 +11,7 @@ pipeline {
         }     
          stage("Upload"){
         steps{
+                def identity=awsIdentity(); 
                 withAWS(region: "us-east-1", credentials:"awscr") {
                     s3Upload(file:'lambda5${BUILD_NUMBER}.zip', bucket:"s3fairinew", path:'lambda5${BUILD_NUMBER}.zip')
                                                                   }    
