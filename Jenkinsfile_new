@@ -16,7 +16,7 @@ pipeline {
                 pwd();
                 def identity=awsIdentity(); 
                 withAWS(region: "us-east-1", credentials:"awscr") {
-                    s3Upload(bucket:"s3fnew", workingDir:'',includePathPattern:'**/*.zip')
+                    s3Upload(bucket:"fairifinal", workingDir:'',includePathPattern:'**/*.zip')
                                                                   }    
               }
                 }
