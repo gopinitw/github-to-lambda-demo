@@ -25,7 +25,7 @@ pipeline {
       steps {
         script {
           sh '''
-          echo "Deploying to: $FUNCTION_NAME using role: $ROLE_ARN"
+          echo "Deploying to: $FUNCTION_NAME using role: 'arn:aws:iam::904440666777:role/ecrregistryec2'"
           set +x
           STS_SESSION_NAME=$(whoami)-$(date +%s)
           STS=$(aws sts assume-role --role-arn $ROLE_ARN --role-session-name "${STS_SESSION_NAME}")
