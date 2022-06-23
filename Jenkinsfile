@@ -4,7 +4,7 @@ pipeline {
       PATH = "/var/lib/jenkins/aws:$PATH"
       ROLE_ARN = "arn:aws:iam::904440666777:role/ecrregistryec2"
       FUNCTION_NAME = "fairi2"
-      RELEASE_ASSET_NAME = "lambda3.zip" 
+      RELEASE_ASSET_NAME = "lambda5.zip" 
   }
   stages {
     stage('Checkout code') {
