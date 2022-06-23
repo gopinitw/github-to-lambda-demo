@@ -12,7 +12,7 @@ pipeline {
   stage('Update Lambda function code') {
       steps {
         script {
-          sh 'aws lambda update-function-code --function-name fairi2 --zip-file fileb://lambda5.zip'
+          sh 'aws lambda update-function-code --function-name fairi3 --zip-file fileb://lambda5.zip'
         }
       }
   }
