@@ -6,7 +6,6 @@ pipeline {
       FUNCTION_NAME = "fairilambda"
       RELEASE_ASSET_NAME = "lambda3.zip" 
   }
-
   stages {
     stage('Checkout code') {
       steps {
