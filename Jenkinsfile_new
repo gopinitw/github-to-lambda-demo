@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  environment {
+      PATH = "/var/lib/jenkins/aws:$PATH"
+  }
+  stages {
+    stage('Zip up lambda') {
+        steps {
+                sh 'zip "lambda5.zip" "lambda_function.py" "requirements.txt"'
+            }
+        }
+  stage('Update Lambda function code') {
+      steps {
+        script {
+          sh 'aws lambda update-function-code --function-name fairi2 --zip-file fileb://lambda5.zip'
+        }
+      }
+  }
+  }
+}
