@@ -13,13 +13,13 @@ pipeline {
         steps{
                 withAWS(region: "us-east-1", credentials:"awscr" {
                     s3Upload(file:"lambda5${BUILD_NUMBER}.zip", bucket:"s3fairinew", path:"/")
-                }    
-        }
-        }
+                                                                  }    
+              }
+                }
         stage('remove the pushed zip folder') {
      steps {
             sh 'rm -rf lambda5${BUILD_NUMBER}.zip'
            }
-                                        }
-  }
-}
+                                               }
+             }
+            }
