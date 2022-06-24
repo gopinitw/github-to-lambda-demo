@@ -27,7 +27,7 @@ pipeline {
              }
         stage('remove the pushed zip folder') {
      steps {
-            sh 'rm -rf lambdag.zip'
+            sh 'rm -rf *.zip'
           }
        }
     }
