@@ -12,7 +12,6 @@ pipeline {
          stage("Upload"){
         steps{
                script {
-                pwd();
                 def identity=awsIdentity(); 
                 withAWS(region: "us-east-1", credentials:"awscr") {
                     s3Upload(bucket:"fairifinal", workingDir:'',includePathPattern:'**/*.zip')
