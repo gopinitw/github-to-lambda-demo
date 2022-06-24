@@ -8,13 +8,13 @@
                 "FunctionName": "fairilatest",
                 
                 "Code": {
-        "S3Bucket" : "surajyt",
-        "S3Key" : "index.zip"
+        "S3Bucket" : "fairifinal",
+        "S3Key" : "lambda5${BUILD_NUMBER}.zip"
       },
                 "Description": "Used to run job",
-                "Handler": "index.lambda_handler",
-                "Role": "arn:aws:iam::13015229333333455024:role/lambda_basic_execution",
-                "Runtime": "python3.6",
+                "Handler": "lambda5${BUILD_NUMBER}_handler",
+                "Role": "arn:aws:iam::904440666777:role/ecrregistryec2",
+                "Runtime": "python3.8",
                 "Timeout": 120
             }
         }
