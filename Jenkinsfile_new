@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambda5${BUILD_NUMBER}.zip" "lambda_function.py" "requirements.txt"'
+                sh 'zip "lambdag.zip" "lambda_function.py" "requirements.txt"'
             }
         }     
          stage("Upload"){
@@ -25,13 +25,13 @@ pipeline {
         stage('Submit Stack') {
             steps {
                     script {
-                     sh 'aws cloudformation create-stack --stack-name lambdanew --template-body file://lambda.json'
+                     sh 'aws cloudformation create-stack --stack-name lambdanew2 --template-body file://lambda.json'
               }
              }
              }
         stage('remove the pushed zip folder') {
      steps {
-            sh 'rm -rf lambda5${BUILD_NUMBER}.zip'
+            sh 'rm -rf lambdag.zip'
           }
        }
     }
