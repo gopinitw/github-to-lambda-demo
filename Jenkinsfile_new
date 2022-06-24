@@ -12,7 +12,6 @@ pipeline {
          stage("Upload"){
         steps{
                script {
-                dir(''){
                 pwd();
                 def identity=awsIdentity(); 
                 withAWS(region: "us-east-1", credentials:"awscr") {
