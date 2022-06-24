@@ -22,6 +22,11 @@ pipeline {
                 }
                 }
                 }
+        stage('Submit Stack') {
+            steps {
+            sh "aws cloudformation create-stack --stack-name lambda --template-body file://lambda.json --region 'us-east-1'"
+              }
+             }
         stage('remove the pushed zip folder') {
      steps {
             sh 'rm -rf lambda5${BUILD_NUMBER}.zip'
