@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambdag.zip" "lambda_function.py" "requirements.txt"'
+                sh 'zip "lambda_function.zip" "lambda_function.py" "requirements.txt"'
             }
         }     
          stage("Upload"){
@@ -21,7 +21,7 @@ pipeline {
         stage('Submit Stack') {
             steps {
                     script {
-                     sh 'aws cloudformation create-stack --stack-name lambdabha --template-body file://lambda.json'
+                     sh 'aws cloudformation create-stack --stack-name lambdaanji --template-body file://lambda.json'
               }
              }
              }
