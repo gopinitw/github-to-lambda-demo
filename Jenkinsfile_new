@@ -25,7 +25,7 @@ pipeline {
         stage('Submit Stack') {
             steps {
                     script {
-                     sh 'aws cloudformation create-stack --stack-name lambdanew2 --template-body file://lambda.json'
+                     sh 'aws cloudformation create-stack --stack-name lambdatest --template-body file://lambda.json'
               }
              }
              }
