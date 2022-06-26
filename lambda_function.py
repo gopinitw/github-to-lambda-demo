@@ -9,7 +9,7 @@ def lambda_handler(event, context):
         'Key': key
         }
     try:
-        destbucket = s3.Bucket('s3writedata')
+        destbucket = s3.Bucket('s3writedatag')
         destbucket.copy(copy_source, key)
         print('{} transferred to destination bucket'.format(key))
 
