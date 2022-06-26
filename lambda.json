@@ -5,10 +5,10 @@
         "LambdaFunResource": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
-                "FunctionName": "fairilatest",
+                "FunctionName": "fairigeerva",
                 
                 "Code": {
-        "S3Bucket" : "fnew",
+        "S3Bucket" : "geervani",
         "S3Key" : "lambda_function.zip"
       },
                 "Description": "Used to run job",
