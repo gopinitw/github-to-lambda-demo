@@ -8,7 +8,7 @@
                 "FunctionName": "fairigeerva",
                 
                 "Code": {
-        "S3Bucket" : "geervani",
+        "S3Bucket" : "geeervani",
         "S3Key" : "lambda_function.zip"
       },
                 "Description": "Used to run job",
