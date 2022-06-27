@@ -14,6 +14,5 @@ def lambda_handler(event, context):
         print('{} transferred to destination bucket'.format(key))
 
     except Exception as e:
-        print(e)
         print('Error getting object {} from bucket {}. '.format(key, bucket))
         raise e
