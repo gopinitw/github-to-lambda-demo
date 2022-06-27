@@ -9,7 +9,8 @@ pipeline {
                 sh '''
                 zip "lambda_function.zip" "lambda_function.py"
                 zip "lambda_function2.zip" "lambda_function2.py"
-                zip "lambda_function3.zip" "lambda_function3.py" '''
+                zip "lambda_function3.zip" "lambda_function3.py"
+                '''
             }
         }     
          stage("Upload"){
@@ -29,7 +30,8 @@ pipeline {
                      sh '''
                      aws cloudformation create-stack --stack-name lambdan1 --template-body file://lambda.json
                      aws cloudformation create-stack --stack-name lambdan2 --template-body file://lambda.json
-                     aws cloudformation create-stack --stack-name lambdan3 --template-body file://lambda.json '''
+                     aws cloudformation create-stack --stack-name lambdan3 --template-body file://lambda.json 
+                     '''
               }
              }
              }
