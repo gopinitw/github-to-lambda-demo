@@ -1,0 +1,22 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "A template is for creating lambda from s3 buckets",
+    "Resources": {
+        "LambdaFunResource": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "FunctionName": "fairigeerva",
+                
+                "Code": {
+        "S3Bucket" : "fairi12",
+        "S3Key" : "lambda_function3.zip"
+      },
+                "Description": "Used to run job",
+                "Handler": "lambda_function3.lambda_handler",
+                "Role": "arn:aws:iam::904440666777:role/lambdaf",
+                "Runtime": "python3.8",
+                "Timeout": "120"
+            }
+        }
+  }
+}
