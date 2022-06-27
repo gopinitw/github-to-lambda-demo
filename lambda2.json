@@ -8,7 +8,7 @@
                 "FunctionName": "fairigeerv",
                 
                 "Code": {
-        "S3Bucket" : "fairi10",
+        "S3Bucket" : "fairi11",
         "S3Key" : "lambda_function2.zip"
       },
                 "Description": "Used to run job",
