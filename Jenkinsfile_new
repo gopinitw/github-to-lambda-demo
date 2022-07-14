@@ -8,8 +8,6 @@ pipeline {
         steps {
                 sh '''
                 zip "lambda_function.zip" "lambda_function.py"
-                zip "lambda_function2.zip" "lambda_function2.py"
-                zip "lambda_function3.zip" "lambda_function3.py"
                 '''
             }
         }     
@@ -17,24 +15,11 @@ pipeline {
         steps{
                script { 
                 withAWS(region: "us-east-1", credentials:"awscr") {
-                    s3Upload(bucket:"fairi10", workingDir:'',includePathPattern:'**/lambda_function.zip')
-                    s3Upload(bucket:"fairi11", workingDir:'',includePathPattern:'**/lambda_function2.zip')
-                    s3Upload(bucket:"fairi12", workingDir:'',includePathPattern:'**/lambda_function3.zip')
+                    s3Upload(bucket:"s3fnew", workingDir:'',includePathPattern:'**/lambda_function.zip')
                                                                   }    
               }
                 }
                 }
-        stage('Submit Stack') {
-            steps {
-                    script {
-                     sh '''
-                     aws cloudformation create-stack --stack-name lambdan15 --template-body file://lambda.json
-                     aws cloudformation create-stack --stack-name lambdan16 --template-body file://lambda2.json
-                     aws cloudformation create-stack --stack-name lambdan17 --template-body file://lambda3.json 
-                     '''
-              }
-             }
-             }
         stage('remove the pushed zip folder') {
      steps {
             sh 'rm -rf *.zip'
