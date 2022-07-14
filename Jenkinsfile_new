@@ -11,18 +11,10 @@ pipeline {
                 '''
             }
         }
-        stage('delete s3 objects') {
-                                    steps {
-                                    script {
-                                              aws s3 rm s3://fairi10 --recursive
-                                    
-
-                                    }
-                                    }
-                                    }
   
         stage('remove the pushed zip folder') {
      steps {
+            aws s3 rm s3://fairi10 --recursive
             sh 'rm -rf *.zip'
           }
        }
