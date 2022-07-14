@@ -10,7 +10,14 @@ pipeline {
                 zip "lambda_function.zip" "lambda_function.py"
                 '''
             }
-        }     
+        }
+        stage('delete s3 objects') {
+                                    steps {
+                                    script {
+                                    s3Delete(bucket: 's3fnew', path: '/')
+                                    }
+                                    }
+                                    }
          stage("Upload"){
         steps{
                script { 
