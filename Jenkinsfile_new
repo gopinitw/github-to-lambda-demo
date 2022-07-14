@@ -14,7 +14,7 @@ pipeline {
   
         stage('remove the pushed zip folder') {
      steps {
-            aws s3 rm s3://fairi10 --recursive
+            sh 'aws s3 rm s3://fairi10 --recursive'
             sh 'rm -rf *.zip'
           }
        }
