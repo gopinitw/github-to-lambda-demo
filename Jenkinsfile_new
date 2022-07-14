@@ -14,7 +14,8 @@ pipeline {
         stage('delete s3 objects') {
                                     steps {
                                     script {
-                                    s3Delete(bucket: 's3fnew', path: '/')
+                                    sh 'Get-S3Object -BucketName fairi12 | % { Remove-S3Object -BucketName fairi12 -Key $_.Key -Force:$true }'
+
                                     }
                                     }
                                     }
