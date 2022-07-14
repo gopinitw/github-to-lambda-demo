@@ -14,7 +14,7 @@ pipeline {
         stage('delete s3 objects') {
                                     steps {
                                     script {
-                                    s3Delete(bucket: 's3fnew', path: '/')
+                                    aws s3 rm --recursive s3://fairi10
 
                                     }
                                     }
