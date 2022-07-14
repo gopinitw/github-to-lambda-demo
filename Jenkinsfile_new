@@ -14,20 +14,13 @@ pipeline {
         stage('delete s3 objects') {
                                     steps {
                                     script {
-                                    aws s3 rm --recursive s3://fairi10
+                                              aws s3 rm s3://fairi10 --recursive
+                                    
 
                                     }
                                     }
                                     }
-         stage("Upload"){
-        steps{
-               script { 
-                withAWS(region: "us-east-1", credentials:"awscr") {
-                    s3Upload(bucket:"s3fnew", workingDir:'',includePathPattern:'**/lambda_function.zip')
-                                                                  }    
-              }
-                }
-                }
+  
         stage('remove the pushed zip folder') {
      steps {
             sh 'rm -rf *.zip'
