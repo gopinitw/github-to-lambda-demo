@@ -25,7 +25,7 @@ pipeline {
                      withAWS(region: "us-east-1", credentials:"awscr") {
                      sh '''
                      #!/bin/bash
-                       output=$(aws cloudformation update-stack --stack-name foo 2>&1)
+                       output=$(aws cloudformation update-stack --stack-name lambdanew6  --template-body file://lambda.json foo 2>&1)
                        RESULT=$?
                        if [ $RESULT -eq 0 ]; then
                           echo "$output"
