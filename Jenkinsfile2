@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
       PATH = "/var/lib/jenkins/aws:$PATH"
+      OPERATION = "create"
   }
   stages {
     stage('Zip up lambda') {
@@ -22,6 +23,7 @@ pipeline {
             steps {
                     script {
                      sh 'aws cloudformation create-stack --stack-name lambdavi --template-body file://lambda.json'
+                     aws cloudformation ${OPERATION}-stack --stack-name "lambdatest" --template-body file://lambda.json  --region "${REGION_NAME}" --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM
               }
              }
              }
