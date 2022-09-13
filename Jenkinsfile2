@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambdag.zip" "lambda_function.py" "requirements.txt"' # give as many files as you needed to zip
+                sh 'zip "lambdag.zip" "lambda_function.py" "requirements.txt"'
             }
         }     
          stage("Upload"){
@@ -21,7 +21,7 @@ pipeline {
         stage('cloud formation stack creation to launch lambda function') {
             steps {
                     script {
-                     sh 'aws cloudformation create-stack --stack-name lambdavi --template-body file://lambda.json'  # template body means we will provide the path for the json file present in same repository
+                     sh 'aws cloudformation create-stack --stack-name lambdavi --template-body file://lambda.json'
               }
              }
              }
