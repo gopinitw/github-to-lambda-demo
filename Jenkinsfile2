@@ -22,7 +22,7 @@ pipeline {
         stage('cloud formation stack creation to launch lambda function') {
             steps {
                     script {
-                     aws cloudformation create-stack --stack-name "lambdatest" --template-body "lambda.json"  --region "${REGION_NAME}" --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM
+                     sh 'aws cloudformation create-stack --stack-name lambdavi --template-body file://lambda.json'
               }
              }
              }
