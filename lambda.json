@@ -8,8 +8,8 @@
                 "FunctionName": "fairigeerva",
                 
                 "Code": {
-        "S3Bucket" : "fairi10",
-        "S3Key" : "lambda_function.zip"
+        "S3Bucket" : "lambafairi",
+        "S3Key" : "lambdag.zip"
       },
                 "Description": "Used to run job",
                 "Handler": "lambda_function.lambda_handler",
