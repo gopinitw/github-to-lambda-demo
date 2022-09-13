@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Zip up lambda') {
         steps {
-                sh 'zip "lambda_function.py"'
+                sh 'zip "lambda.py"'
             }
         }     
          stage("Upload"){
