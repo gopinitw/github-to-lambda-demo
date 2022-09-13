@@ -25,6 +25,7 @@ pipeline {
                      withAWS(region: "us-east-1", credentials:"awscr") {
                      sh 'aws cloudformation create-stack --stack-name lambdavi --template-body file://lambda.json'
               }
+              }
              }
              }
         stage('remove the pushed zip folder') {
