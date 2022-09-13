@@ -5,7 +5,7 @@
         "LambdaFunResource": {
             "Type": "AWS::Lambda::Function",
             "Properties": {
-                "FunctionName": "fairinew",
+                "FunctionName": "fairigv",
 
                 "Code": {
         "S3Bucket" : "lambafairi",
