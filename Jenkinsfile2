@@ -23,7 +23,7 @@ pipeline {
             steps {
                     script {
                      withAWS(region: "us-east-1", credentials:"awscr") {
-                     aws cloudformation update-stack --stack-name "lambdanew6" --template-body file://lambda.json  --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM
+                     sh 'aws cloudformation update-stack --stack-name "lambdanew6" --template-body file://lambda.json --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM'
               }
               }
              }
