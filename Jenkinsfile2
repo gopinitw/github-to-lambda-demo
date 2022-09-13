@@ -23,8 +23,22 @@ pipeline {
             steps {
                     script {
                      withAWS(region: "us-east-1", credentials:"awscr") {
-                     sh 'aws cloudformation deploy --stack-name lambdanew6 --template-file /var/lib/jenkins/workspace/lamba/lambda.json --no-fail-on-empty-changeset'
-                           
+                     sh '''
+                     #!/bin/bash
+                       output=$(aws cloudformation update-stack --stack-name foo 2>&1)
+                       RESULT=$?
+                       if [ $RESULT -eq 0 ]; then
+                          echo "$output"
+                       else
+                         if [[ "$output" == *"No updates are to be performed"* ]]; then
+                           echo "No cloudformation updates are to be performed."
+                           exit 0
+                         else
+                          echo "$output"
+                          exit $RESULT
+                        fi
+                      fi
+                  '''
               }
               }
              }
