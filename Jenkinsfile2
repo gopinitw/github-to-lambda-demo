@@ -23,22 +23,7 @@ pipeline {
             steps {
                     script {
                      withAWS(region: "us-east-1", credentials:"awscr") {
-                     sh '''
-                     #!/bin/bash
-                       output=$(aws cloudformation update-stack --stack-name lambdanew6  --template-body file://lambda.json foo 2>&1)
-                       RESULT=$?
-                       if [ $RESULT -eq 0 ]; then
-                          echo "$output"
-                       else
-                         if [[ "$output" == *"No updates are to be performed"* ]]; then
-                           echo "No cloudformation updates are to be performed."
-                           exit 0
-                         else
-                          echo "$output"
-                          exit $RESULT
-                        fi
-                      fi
-                  '''
+                     aws cloudformation update-stack --stack-name "lambdanew6" --template-body file://lambda.json  --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM
               }
               }
              }
