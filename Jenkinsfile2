@@ -15,6 +15,7 @@ pipeline {
                script { 
                 withAWS(region: "us-east-1", credentials:"awscr") {
                     s3Upload(bucket:"lambafairi", workingDir:'',includePathPattern:'**/*.zip')
+                    s3Upload(bucket:"lambafairi2", workingDir:'',includePathPattern:'**/*lambda.json')
                     sh 'aws s3 cp "lambda.json" "s3://lambdafairi2/" --recursive'
                                                                   }    
               }
