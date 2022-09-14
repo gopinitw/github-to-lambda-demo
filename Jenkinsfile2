@@ -23,7 +23,7 @@ pipeline {
             steps {
                     script {
                      withAWS(region: "us-east-1", credentials:"awscr") {
-                     sh 'aws cloudformation create-stack --stack-name "bhadra" --template-url "https://lambdafairi2.s3.amazonaws.com/lambda.json"  --region "us-east-1d" --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM'
+                     sh 'aws cloudformation create-stack --stack-name "bhadra" --template-url "https://lambdafairi2.s3.amazonaws.com/lambda.json"  --region "us-east-1" --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM'
               }
               }
              }
