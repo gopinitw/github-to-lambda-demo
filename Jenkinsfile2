@@ -15,6 +15,7 @@ pipeline {
                script { 
                 withAWS(region: "us-east-1", credentials:"awscr") {
                     s3Upload(bucket:"lambafairi", workingDir:'',includePathPattern:'**/*.zip')
+                    aws s3 cp "/var/lib/jenkins/workspace/lamba/lambda.json" "s3://lambdafairi2/" --recursive
                                                                   }    
               }
                 }
@@ -23,7 +24,8 @@ pipeline {
             steps {
                     script {
                      withAWS(region: "us-east-1", credentials:"awscr") {
-                     sh 'aws cloudformation update-stack --stack-name "lambdanew6" --template-body file://lambda.json --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM'
+                     sh 'aws cloudformation create-stack --stack-name "bhadra" --template-url "https://test-jenkins-lambda-template.s3.amazonaws.com/fairi_lambdas.yaml"  --region "${REGION_NAME}" --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM'
+'
               }
               }
              }
